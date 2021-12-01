@@ -1,0 +1,134 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <a
+                  [routerLink]="['/home']">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Back Home</h5>
+                </a>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+       
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">                 
+                  <a
+                  [routerLink]="['/student/new']">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Register New Student</h5>
+                </a>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                </div>
+              </div>
+         
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Students</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Date Of Birth</th>
+                <th scope="col">Study Year</th>
+                <th scope="col">Actions</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of students ">
+                <th scope="row">
+                  <div class="media align-items-center">
+                    {{student.id}}
+                  </div>
+                </th>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    {{student.firstName}}
+                  </div>
+                </th>
+                <td>
+                  {{student.lastName}}
+                </td>
+                <td>
+                  <span class="badge badge-dot mr-4">
+                    {{student.dateOfBirth}}
+                  </span>
+                </td>
+                <td>
+                  {{student.studyYear}}
+                </td>
+                <td><button (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>
+                  <button (click)="updateStudent(student.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                  <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+              </td>
+
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                  <i class="fas fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">
+                  <i class="fas fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
